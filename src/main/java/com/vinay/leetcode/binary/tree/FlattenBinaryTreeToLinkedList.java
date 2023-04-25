@@ -12,7 +12,7 @@ public class FlattenBinaryTreeToLinkedList {
         PathSum2 pathSum2 = new PathSum2();
         PathSum2.TreeNode node = pathSum2.arrayToTree(new Integer[]{1,2,3,4, null,5,null,6, null, 7, null});
         FlattenBinaryTreeToLinkedList flattenBinaryTreeToLinkedList = new FlattenBinaryTreeToLinkedList();
-        flattenBinaryTreeToLinkedList.flatten(node);
+//        flattenBinaryTreeToLinkedList.flatten(node);
         pathSum2.bfsTraversal(node);
     }
 

@@ -1,4 +1,4 @@
-package com.vinay.leetcode;
+package com.vinay.leetcode.arrays;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package com.vinay.leetcode;
+package com.vinay.leetcode.dfs;
 
 import com.vinay.leetcode.binary.tree.PathSum2.*;
 

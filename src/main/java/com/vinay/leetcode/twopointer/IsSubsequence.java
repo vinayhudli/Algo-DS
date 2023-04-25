@@ -1,4 +1,4 @@
-package com.vinay.leetcode.dp;
+package com.vinay.leetcode.twopointer;
 
 /*
 https://leetcode.com/problems/is-subsequence/description/

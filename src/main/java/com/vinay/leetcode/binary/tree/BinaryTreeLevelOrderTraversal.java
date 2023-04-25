@@ -1,8 +1,6 @@
 package com.vinay.leetcode.binary.tree;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /*
 https://leetcode.com/problems/binary-tree-level-order-traversal/description/
@@ -28,5 +26,16 @@ public class BinaryTreeLevelOrderTraversal {
             childList = new ArrayList<>();
         }
         return result;
+    }
+
+    public static void main(String[] args) {
+        Queue<Integer> queue = new PriorityQueue<>((insert, present)->present-insert);
+        queue.add(10);
+        queue.add(5);
+        queue.add(15);
+        System.out.println(queue.remove());
+        System.out.println(queue.remove());
+        System.out.println(queue.remove());
+
     }
 }

@@ -1,11 +1,10 @@
-package com.vinay.leetcode;
+package com.vinay.leetcode.backtrack;
 
 /*
 https://leetcode.com/problems/subsets/
  */
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Subsets {

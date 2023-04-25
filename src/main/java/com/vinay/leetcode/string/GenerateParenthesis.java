@@ -7,7 +7,7 @@ public class GenerateParenthesis {
 
     public static void main(String[] args) {
         GenerateParenthesis generateParenthesis = new GenerateParenthesis();
-        generateParenthesis.generateParenthesis(3);
+        System.out.println(generateParenthesis.generateParenthesis(3));
     }
 
     public List<String> generateParenthesis(int n) {
@@ -15,9 +15,6 @@ public class GenerateParenthesis {
         List<String> result = new ArrayList<>();
         generate(str, 1, n, result);
 
-        for (String s:result){
-            System.out.println(s);
-        }
         return result;
     }
 

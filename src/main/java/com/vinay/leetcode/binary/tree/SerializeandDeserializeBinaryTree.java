@@ -1,6 +1,4 @@
-package com.vinay.leetcode;
-
-import com.vinay.leetcode.binary.tree.PathSum2.*;
+package com.vinay.leetcode.binary.tree;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -10,22 +8,22 @@ public class SerializeandDeserializeBinaryTree {
 
     public static void main(String[] args) {
         SerializeandDeserializeBinaryTree serializeandDeserializeBinaryTree = new SerializeandDeserializeBinaryTree();
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.left.left = new TreeNode(3);
-        root.right = new TreeNode(4);
+        PathSum2.TreeNode root = new PathSum2.TreeNode(1);
+        root.left = new PathSum2.TreeNode(2);
+        root.left.left = new PathSum2.TreeNode(3);
+        root.right = new PathSum2.TreeNode(4);
         System.out.println(serializeandDeserializeBinaryTree.serialize(root));
     }
     // Encodes a tree to a single string.
-    public String serialize(TreeNode root) {
+    public String serialize(PathSum2.TreeNode root) {
         if (root == null)
             return null;
         List<Integer> list = new ArrayList<>();
-        List<TreeNode> levelOrder = new LinkedList<>();
+        List<PathSum2.TreeNode> levelOrder = new LinkedList<>();
         levelOrder.add(root);
         list.add(root.val);
         while (!levelOrder.isEmpty()){
-            TreeNode remove = levelOrder.remove(0);
+            PathSum2.TreeNode remove = levelOrder.remove(0);
             if (remove.left == null)
                 list.add(null);
             else {
@@ -52,21 +50,21 @@ public class SerializeandDeserializeBinaryTree {
     }
 
     // Decodes your encoded data to tree.
-    public TreeNode deserialize(String data) {
+    public PathSum2.TreeNode deserialize(String data) {
         if (data == null)
             return null;
         String[] split = data.split(",");
-        TreeNode root = new TreeNode(Integer.valueOf(split[0]));
-        List<TreeNode> level = new LinkedList<>();
+        PathSum2.TreeNode root = new PathSum2.TreeNode(Integer.valueOf(split[0]));
+        List<PathSum2.TreeNode> level = new LinkedList<>();
         level.add(root);
         for (int i=1;i< split.length;i++){
-            TreeNode remove = level.remove(0);
+            PathSum2.TreeNode remove = level.remove(0);
             if (split[i].compareToIgnoreCase("null") != 0) {
-                remove.left = new TreeNode(Integer.valueOf(split[i]));
+                remove.left = new PathSum2.TreeNode(Integer.valueOf(split[i]));
                 level.add(remove.left);
             }
             if (split[++i].compareToIgnoreCase("null") != 0){
-                remove.right = new TreeNode(Integer.valueOf(split[i]));
+                remove.right = new PathSum2.TreeNode(Integer.valueOf(split[i]));
                 level.add(remove.right);
             }
         }

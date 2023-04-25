@@ -66,4 +66,30 @@ public class LongestConsecutiveSequence {
         }
         return maxLength;
     }
+
+//    using set to store all the numbers and then starting from lowest in the sequence
+    public int longestConsecutive2(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        int maxLength = 0;
+        for (int i=0;i< nums.length;i++)
+            set.add(nums[i]);
+        for (int i=0;i< nums.length;i++){
+            if (set.contains(nums[i]-1))
+                continue;
+            int length = getLength(nums[i], set);
+            maxLength = Math.max(maxLength, length);
+        }
+        return maxLength;
+    }
+
+    public int getLength(int element, Set<Integer> set){
+        int length = 0;
+        while (!set.isEmpty() && set.contains(element)){
+            length++;
+            set.remove(element);
+            element++;
+        }
+        return length;
+    }
+
 }
