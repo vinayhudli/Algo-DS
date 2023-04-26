@@ -1,4 +1,4 @@
-package com.vinay.leetcode;
+package com.vinay.leetcode.twopointer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
