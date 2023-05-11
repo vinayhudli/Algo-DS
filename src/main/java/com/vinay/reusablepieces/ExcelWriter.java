@@ -1,6 +1,6 @@
 package com.vinay.reusablepieces;
 
-import lombok.Builder;
+//import lombok.Builder;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFFont;
@@ -14,22 +14,23 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-@Builder
+//@Builder
 public class ExcelWriter {
 
-    private final List<String> headers;
-    private final String fontName;
-    private final short fontHeight;
-    @Builder.Default
-    private final String fileName = "report.xlsx" ;
-    private final boolean appendSheetToFile ;
+    private List<String> headers;
+    private String fontName;
+    private short fontHeight;
+//    @Builder.Default
+    private String fileName = "report.xlsx" ;
+    private boolean appendSheetToFile ;
 
 
     private Path createFile() throws IOException {
         File currDir = new File(".");
         String path = currDir.getAbsolutePath();
         String fileLocation = path.substring(0, path.length() - 1) + fileName;
-        Path filePath = Path.of(fileLocation);
+//        Path filePath = Path.of(fileLocation);
+        Path filePath =  Paths.get(fileLocation);
         if (appendSheetToFile){
             if (Files.exists(filePath))
                 return filePath;
