@@ -1,6 +1,6 @@
 package com.vinay.runner;
 
-import javax.annotation.PreDestroy;
+//import javax.annotation.PreDestroy;
 
 public class DemoClass {
     private static Integer test ;
@@ -17,7 +17,7 @@ public class DemoClass {
         return test;
     }
 
-    @PreDestroy
+//    @PreDestroy
     public void onDestroy(){
         System.out.println("in destroy");
     }

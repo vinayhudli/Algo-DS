@@ -3,6 +3,9 @@ package com.vinay.leetcode.linkedlist;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+https://leetcode.com/problems/lru-cache/description/
+ */
 public class LRUCache {
 
     public static void main(String[] args) {
