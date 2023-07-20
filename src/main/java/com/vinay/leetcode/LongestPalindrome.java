@@ -2,13 +2,51 @@ package com.vinay.leetcode;
 
 public class LongestPalindrome {
     PalindromeIndex[][] palindromeString;
-
     public static void main(String[] args) {
         LongestPalindrome longestPalindrome = new LongestPalindrome();
-        System.out.println(longestPalindrome.longestPalindrome("ac"));
+        System.out.println(longestPalindrome.longestPalindrome("aacabdkacaa"));
     }
 
+    Boolean[][]  isPalindrome;
+    int startIdx = -1;
+    int endIdx = -1;
+    int maxLength = Integer.MIN_VALUE;
+
     public String longestPalindrome(String s) {
+        isPalindrome = new Boolean[s.length()][s.length()];
+        findLongestPalindrome(0, s.length()-1, s);
+        if (startIdx == -1 ){
+            return "";
+        }
+        return s.substring(startIdx, endIdx+1);
+    }
+
+    private void findLongestPalindrome(int start, int end, String s){
+        if (start>end)
+            return;
+        if (isPalindrome[start][end] != null)
+            return;
+
+        if (s.charAt(start) == s.charAt(end)){
+            findLongestPalindrome(start+1, end-1, s);
+            isPalindrome[start][end] = true;
+            if (start < end -1)
+                isPalindrome[start][end] = isPalindrome[start+1][end-1] ;
+            if (maxLength<(end-start+1) && isPalindrome[start][end]){
+                maxLength = end-start+1;
+                startIdx = start;
+                endIdx = end;
+                return;
+            }
+        }else{
+            isPalindrome[start][end] = false;
+        }
+        findLongestPalindrome(start+1, end, s);
+        findLongestPalindrome(start, end-1, s);
+        findLongestPalindrome(start+1, end-1, s);
+    }
+
+    public String longestPalindromePre(String s) {
         palindromeString = new PalindromeIndex[s.length()][s.length()];
         char[] chars = s.toCharArray();
         PalindromeIndex palindromeIndex = palindromeSubstring(chars, 0, s.length() - 1);
@@ -62,6 +100,14 @@ public class LongestPalindrome {
             if (chars[low+i] != chars[end-i]){
                 return false;
             }
+        }
+        return true;
+    }
+
+    private boolean isPalindrome(String str, int start, int end){
+        while (start<end){
+            if (str.charAt(start++) != str.charAt(end--))
+                return false;
         }
         return true;
     }
